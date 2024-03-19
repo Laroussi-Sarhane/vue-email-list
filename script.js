@@ -12,21 +12,26 @@ createApp({
 
     }
   },
+
   methods: {
     
     randomEmail(){
-    for(let i = 1; i<=10; i++){
-      axios.get(this.apiUrl)
-      .then((risultato)=>{
-        const nuovaEmail = risultato.data.response;
-        console.log(nuovaEmail);
-        console.log(random);
-        this.randomEm.push(nuovaEmail);
+      for(let i = 1; i<=10; i++){
+        axios.get(this.apiUrl)
+        .then((risultato)=>{
+          const nuovaEmail = risultato.data.response;
+          console.log(nuovaEmail);
+          console.log(random);
+          this.randomEm.push(nuovaEmail);
       });
     };
    },
+
   },
 
+  mounted(){
+    this.randomEm;
+  },
 
 
   
@@ -34,9 +39,6 @@ createApp({
    
 
   
-  mounted(){
-    this.randomEmail;
-  },
 
 }).mount('#app');
 
